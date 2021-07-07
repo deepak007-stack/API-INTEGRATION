@@ -13,16 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APIINTEGRATION"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Data_Through">
+        <activity android:name=".Update_data"></activity>
+        <activity android:name=".Insert_data" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Single_data_fetch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Shared_Preference">
-        </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".Shared_Preference" />
+        <activity android:name=".All_data_fetch" />
     </application>
 
 </manifest>

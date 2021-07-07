@@ -2,6 +2,7 @@ package com.layout.apiintegration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,14 +15,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class MainActivity extends AppCompatActivity {
+public class All_data_fetch extends AppCompatActivity {
 
     private Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_all_data_fetch);
 
         submit = (Button) findViewById(R.id.submit);
 
@@ -36,15 +37,21 @@ public class MainActivity extends AppCompatActivity {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        
+                        Toast.makeText(All_data_fetch.this, response, Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(All_data_fetch.this,Profile.class);
+
+                        intent.putExtra("key_response",response);
+
+                        startActivity(intent);
 
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast.makeText(MainActivity.this, "Error :" + error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(All_data_fetch.this, "Error :" + error, Toast.LENGTH_SHORT).show();
 
                     }
                 });
